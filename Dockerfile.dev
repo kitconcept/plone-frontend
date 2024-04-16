@@ -13,7 +13,7 @@ WORKDIR /app
 EXPOSE 3000 3001 6006
 
 # Entrypoint would be yarn
-ENTRYPOINT [ "yarn" ]
+ENTRYPOINT [ "pnpm" ]
 
 # Run the project in development mode
 CMD ["start"]
