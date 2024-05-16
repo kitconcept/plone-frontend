@@ -81,7 +81,7 @@ jobs:
     uses: ./.github/workflows/image-release.yml
     with:
       volto-version: ${{ needs.meta.outputs.VOLTO_VERSION }}
-      image-name: plone/plone-frontend
+      image-name: ghcr.io/kitconcept/plone-frontend
       dockerfile: Dockerfile
       platforms: ${{ needs.meta.outputs.PLATFORMS  }}
       is-latest: ${{ needs.meta.outputs.IS_LATEST == 'true'  }}
