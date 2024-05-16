@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  BASE_IMAGE_NAME: kitconcept/plone-frontend
+  BASE_IMAGE_NAME: ghcr.io/kitconcept/plone-frontend
   PLATFORMS: linux/amd64
   IS_LATEST: false
 
