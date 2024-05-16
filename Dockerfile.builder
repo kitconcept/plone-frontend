@@ -17,13 +17,8 @@ RUN <<EOT
 EOT
 
 RUN <<EOT
-    pipx run cookiecutter gh:plone/cookiecutter-volto addon_name=app --no-input
+    pipx run --no-cache cookieplone sub/frontend_project --no_input __version_plone_volto=$VOLTO_VERSION
     chown -R node:node /app
-    cd /app
-    sed -i 's/${VOLTO_VERSION}/'"$VOLTO_VERSION"'/g' mrs.developer.json
-    # Removes the addon dependency from package.json
-    python3 -c "import json; data = json.load(open('package.json')); data['dependencies'].pop(list(data['dependencies'].keys())[-1]); json.dump(data, open('package.json', 'w'), indent=2)"
-    rm -rf packages/app
 EOT
 
 COPY --chown=node:node volto.config.js /app/
@@ -35,6 +30,6 @@ WORKDIR /app
 
 RUN --mount=type=cache,id=pnpm,target=/app/.pnpm-store,uid=1000 <<EOT
     set -e
-    pnpm dlx mrs-developer missdev --no-config --fetch-https
+    git clone -b $VOLTO_VERSION --depth 1 https://github.com/plone/volto core
     pnpm install
 EOT
