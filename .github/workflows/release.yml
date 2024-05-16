@@ -2,12 +2,12 @@ name: Release new Docker image
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - newapproach
   workflow_dispatch:
 
 env:
-  BASE_IMAGE_NAME: plone/frontend
+  BASE_IMAGE_NAME: kitconcept/frontend
   PLATFORMS: linux/amd64,linux/arm64
   IS_LATEST: false
 
