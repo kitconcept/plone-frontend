@@ -18,8 +18,8 @@ RESET=`tput sgr0`
 YELLOW=`tput setaf 3`
 
 # Current version
-MAIN_IMAGE_NAME=plone/plone-frontend
-BASE_IMAGE_NAME=plone/frontend
+MAIN_IMAGE_NAME=ghcr.io/kitconcept/plone-frontend
+BASE_IMAGE_NAME=ghcr.io/kitconcept/frontend
 VOLTO_VERSION=$$(cat version.txt)
 IMAGE_TAG=${VOLTO_VERSION}
 NIGHTLY_IMAGE_TAG=nightly
